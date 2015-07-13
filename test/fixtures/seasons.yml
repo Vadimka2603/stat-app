@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: seasons
+#
+#  id         :integer          not null, primary key
+#  year       :string
+#  win        :integer
+#  draw       :integer
+#  lose       :integer
+#  team_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: MyString
+  win: 1
+  draw: 1
+  lose: 1
+
+two:
+  year: MyString
+  win: 1
+  draw: 1
+  lose: 1
