@@ -1,0 +1,25 @@
+- provide(:title, 'Создать новую задачу')
+.row
+  - if flash[:notice]
+    .noticered= flash[:notice]
+.row
+  .tag_load_block
+    %h4
+      %center
+        Укажите данные по соревнованию
+    = form_tag(@task, method: "post", class:"load_tag_form", class: "form-horizontal") do
+      .form-group
+        = label :object, "Имя тэга", class: "col-sm-4 control-label"
+        .col-sm-8
+          = collection_select :object, :competition_id, Competition.all, :id, :name
+      .form-group
+        = label :begin_year, "Период с", class: "col-sm-4 control-label"
+        .col-sm-8
+          = select_year Date.today, :start_year => Time.now.year - 5, :end_year => Time.now.year, :field_name => :begin_year, :prefix => :profile
+      .form-group
+        = label :end_year, "по", class: "col-sm-4 control-label"
+        .col-sm-8
+          = select_year Date.today, :start_year => Time.now.year, :end_year => Time.now.year - 5, :field_name => :end_year, :prefix => :profile
+      .form-group
+        .col-sm-8.col-sm-push-4
+          = submit_tag "Создать"

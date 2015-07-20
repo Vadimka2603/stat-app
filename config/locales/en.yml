@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  tasks:
+    states:
+      loaded: Загружено
+      new: Новый
+      loading: Загружается
+      analizing: Анализируется
+      analized: Доступно
+      load_stoped: Загрузка прервана
+      analize_stoped: Анализ прерван

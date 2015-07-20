@@ -1,0 +1,85 @@
+
+@import 'font-awesome';
+@import 'bootstrap-custom';
+
+
+body { padding-top: 60px; }
+
+.task_list_container {
+	.load_btn {
+	  background-color: #00A35B;
+	  padding: 4px 8px;
+	  border-radius: 3px;
+	  color: white;
+	}
+	.delete_btn{
+	  color: #fff;
+	  background-color: #F04124;
+	  border-color: #ea2f10;
+	  border-radius: 3px;
+	  padding: 4px 8px;
+	}
+	.analyze_btn{
+	  color: #fff;
+	  background-color: #093CBD;
+	  border-color: #0938B0;
+	  border-radius: 3px;
+	  padding: 4px 4px;
+	}
+	.view_btn{
+	  color: black;
+	  padding: 4px 4px;
+    }
+
+    .ins_btn{
+      border-radius: 3px;
+      background-color: #8C24F0;
+      color: #E5FCED;
+      padding: 4px 8px;
+    }
+}
+
+.tag_load_block{
+	width: 509px;
+    margin: 0px auto;
+    background-color: #EFEFEF;
+      padding: 10px;
+}
+
+
+
+.txt-ctr { text-align: center; }
+
+.whiteTextOverride
+{
+ color: #E5FCED;
+ font-weight: bold;
+}
+
+.otstup {
+margin-left: 27%;
+}
+
+.go_right {
+margin-right: 10%;
+}
+
+.conteiner-bg {
+  background-color: #EFEFEF;
+}
+
+.blackTextOverride
+{
+ color: black;
+ font-weight:s bold;
+}
+
+.noticered
+{
+  color: red;
+  font-weight:s bold;
+}
+
+.otst {
+margin-left: 2%;
+}

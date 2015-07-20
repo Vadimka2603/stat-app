@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    = favicon_link_tag 'https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/11427464_720236364748888_46879342_a.jpg'
+    %title
+      = yield(:title)
+    = stylesheet_link_tag    'application', media: 'all', |
+      'data-turbolinks-track' => true
+    = javascript_include_tag '//www.google.com/jsapi', 'chartkick'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+
+    = render 'layouts/header'
+    .container.conteiner-bg
+      = yield
+
+
+    .container
+      .row
+        %footer
+
+          %p &copy;

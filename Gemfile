@@ -23,10 +23,8 @@ gem 'filterrific'
 
 gem 'pg'
 
-gem 'slim-rails'
 
 gem 'newrelic_rpm'
-
 
 
 gem 'nokogiri'

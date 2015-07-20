@@ -1,0 +1,8 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    %nav
+      %ul.nav.navbar-nav.navbar-left.navbar-header
+        %li.whiteTextOverride.href= link_to "Stat-app", root_path
+      %ul.nav.navbar-nav.navbar-right
+        %li.whiteTextOverride= link_to raw('<i class="fa fa-file"></i> Создать новую задачу'), load_path
+        %li.whiteTextOverride= link_to "Результаты", root_path, target: '_blank'

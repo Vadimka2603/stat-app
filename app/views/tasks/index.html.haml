@@ -1,0 +1,36 @@
+- provide(:title, 'Задачи')
+.row
+  - if flash[:notice]
+    .noticered.otst= flash[:notice]
+= will_paginate
+.row
+  %h1.otstup Cписок cтатистических выборок
+  .task_list_container
+    %table.table.table-striped{:class=>'txt-ctr'}
+      %thead
+        %tr
+          %th{:class=>'txt-ctr'}
+          %th{:class=>'txt-ctr'} Соревнование
+          %th{:class=>'txt-ctr'} Состояние
+          %th{:class=>'txt-ctr'} Нижняя дата выборки
+          %th{:class=>'txt-ctr'} Конечная дата выборки
+          %th{:class=>'txt-ctr'} Действия
+
+      %tbody
+        - @tasks.each do |task|
+          %tr
+            %td{:class=>'text-right'}=image_tag("http://www.transfermarkt.ru/#{task.competition.avatar}")
+            %td{:class=>'txt-ctr'}
+              %strong
+                =link_to ("#{task.competition.name}"),task_path(task)
+            %td
+              = I18n.t "tasks.states.#{task.aasm_state}"
+            %td{:class=>'txt-ctr'}= task.start_date
+            %td{:class=>'txt-ctr'}= task.finish_date
+            %td{:class=>'text-right'}
+              .btn-group
+                = link_to raw('<i class="fa fa-bar-chart fa-1x " title="Анализировать "></i>'), analize_task_path(task), {:class=>'btn btn-info btn-xs'} if task.aasm_state == "new"
+                = link_to raw('<i class="fa fa-eye fa-1x " title="Просмотреть "></i>'), task_path(task), {:class=>'btn btn-primary btn-xs'} if task.aasm_state == "analized"
+                = link_to raw('<i class="fa fa fa-play fa-1x " title="Возобновить анализ "></i>'), analize_task_path(task), {:class=>'btn btn-info btn-xs'} if task.aasm_state == "analize_stoped"
+                = link_to raw('<i class="fa fa-pause fa-1x " title="Прервать анализ "></i>'), stop_task_path(task), {:class=>'btn btn-info btn-xs'} if task.aasm_state == "analizing"
+                = link_to raw('<i class="fa fa-trash-o fa-1x " title="Удалить"></i>'), task, data: {confirm: 'Вы уверены?'}, method: :delete, :class=>'btn btn-danger btn-xs' unless task.aasm_state == "analizing"

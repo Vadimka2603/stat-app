@@ -35,12 +35,14 @@ ActiveRecord::Schema.define(version: 20150713130615) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "aasm_state"
-    t.string   "competition"
     t.integer  "start_date"
     t.integer  "finish_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "competition_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "tasks", ["competition_id"], name: "index_tasks_on_competition_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "logo"

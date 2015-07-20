@@ -12,4 +12,5 @@
 
 class Competition < ActiveRecord::Base
   validates :avatar, :link, :name, presence: true
+  has_many :tasks, dependent: :destroy
 end

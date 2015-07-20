@@ -1,4 +1,4 @@
-n = 1
+n = 0
 while n < 3.5
   source = "http://www.transfermarkt.ru/wettbewerbe/europa?page=#{n+1}"
   page = Nokogiri::HTML(open(source), nil, 'UTF-8')
@@ -14,7 +14,10 @@ while n < 3.5
         no_slice_logo_url.slice!(-2..-1)
         no_slice_logo_url.slice!(0..2)
         logo_url = no_slice_logo_url
-        name = pre_name.split("/").second
+        name_part1 = pre_name.split("/").second
+        name_part2 = pre_name.split("/")[4]
+        name = name_part1+ " " +name_part2
+        name.slice!(-1..-1)
         pre_name.slice!(-1..-1)
         pre_name.slice!(0..2)
         link = pre_name
